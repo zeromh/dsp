@@ -60,7 +60,7 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What terminal editor will you use? How did you make your decision?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> nano. I've tried nano and vim before, and vim seems needlessly difficult for now.
 
 --
 
@@ -68,6 +68,6 @@ What terminal editor will you use? How did you make your decision?
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> I'll use Spyder for now, as it's already installed and it seems similar to RStudio, which I'm already used to. Spyder has a few different consoles, a history log, and variable list. I use `F5` to run a file or `Cmd+Enter` to run the selected code. I haven't made any customizations yet.
 
  
