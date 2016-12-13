@@ -39,8 +39,47 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> A comprehension is like a fast, one-liner for loop. Comprehensions also have an optional conditional statement.  
+I could make every word in a list uppercase using a list comprehension:
 
+```
+t = ['boom','word','yeah']
+[word.upper() for word in t]
+
+#Output
+['BOOM', 'WORD', 'YEAH']
+```
+Or I could use map and a lambda function to do the same thing:
+
+```
+map(lambda word: word.upper(), t)
+
+#Output same as above
+```
+Here are two similar operations using a list comprehension or filter to only return words in the list that begin with 'y':
+
+```
+[word for word in t if word[0] == 'y']
+filter(lambda word: word[0] == 'y', t)
+
+#Output
+['yeah']
+```
+Comprehensions tend to be faster/more efficient since they use optimized for loops, don't make new function calls, and only go through each sequence once.  
+A comprehension can return a set just as easily as a list:
+```
+{word.upper() for word in t}
+
+#Output
+set(['WORD', 'BOOM', 'YEAH'])
+```
+Or a dictionary:
+```
+{word:word.upper() for word in t}
+
+#Output
+{'word': 'WORD', 'boom': 'BOOM', 'yeah': 'YEAH'}
+```
 ---
 
 ###Complete the following problems by editing the files below:
