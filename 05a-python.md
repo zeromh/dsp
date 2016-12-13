@@ -22,8 +22,8 @@ How are Python lists and sets similar and different? Give examples of using both
 
 >> Both can contain items of different types. Sets are unordered and therefore cannot be indexed. Lists are mutable and sets are immutable. For large sets/lists, it's much faster to find an element in a set because the set uses a hash table.
 
-You might use a list to store words to iterate over, i.e. ['apple','banana',car']
-You might sets to see if one set contains another set, i.e. {1,2,3,4,5} - {3,1,2} = {4,5}
+>>You might use a list to store words to iterate over, i.e. ['apple','banana',car']  
+>>You might sets to see if one set contains another set, i.e. {1,2,3,4,5} - {3,1,2} = {4,5}
 
 ---
 
