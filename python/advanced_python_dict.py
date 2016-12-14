@@ -21,13 +21,6 @@ print '\n'
 
 #Q8
 def dict_sort_last(d):
-  t = []
-  res = []
-  for key in d.keys():
-      t.append((key[-1], key))
-  t.sort()
-  for x, y in t:
-      res.append(y)
-  return res
+  return sorted(d, key = lambda x: x[1])
 
 print 'Here is the dictionary sorted by last name:', dict_sort_last(professor_dict)
