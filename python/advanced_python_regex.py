@@ -12,7 +12,7 @@ degree_freq = pd.Series(total_degree_list).value_counts()
 print 'Number of different degrees:', len(degree_freq)
 print 'Frequencies of each degree:\n', degree_freq, '\n'
     
-df.title = df.title.apply(lambda s: s.replace(' is ', ' of '))
+df.title = df.title.str.replace(' is ', ' of ')
 print 'Number of different titles:', len(df.title.value_counts())
 print 'Frequencies of each title:\n', df.title.value_counts(), '\n'
 
