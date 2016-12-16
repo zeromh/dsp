@@ -1,6 +1,5 @@
-#Q6
-faculty_dict = { 'Ellenberg': [['Ph.D.', 'Professor', 'sellenbe@upenn.edu'], ['Ph.D.', 'Professor', 'jellenbe@mail.med.upenn.edu']],
-              'Li': [['Ph.D.', 'Assistant Professor', 'liy3@email.chop.edu'], ['Ph.D.', 'Associate Professor', 'mingyao@mail.med.upenn.edu'], ['Ph.D.', 'Professor', 'hongzhe@upenn.edu']]}
+import pandas as pd
+import numpy as np
 
 def print_three(d):
   count = 0  
@@ -10,12 +9,35 @@ def print_three(d):
     count += 1  
     if count == 3:  
       break
+
+df = pd.read_csv('faculty.csv')
+df.columns = [n.strip() for n in list(df)]
+df.title = df.title.replace(' is ', ' of ', regex = True)
+df.degree = df.degree.replace('0', np.nan)
+df.degree = df.degree.str.strip()
+
+# Split full name into firstname and lastname
+df['firstname'] = df.name.str.extract('(.+(?= ))')
+df['lastname'] = df.name.str.extract('(\w+$)')
+
+#Q6
+# Create faculty_dict
+faculty_dict = dict()
+cols = ['degree', 'title', 'email']
+for i in range(len(df)):
+    faculty_dict.setdefault(df.loc[i, 'lastname'], []).append(df.loc[i, cols].tolist())
+
       
 print_three(faculty_dict)
 print '\n'
 
 #Q7
-professor_dict = {('Susan', 'Ellenberg'): ['Ph.D.', 'Professor', 'sellenbe@upenn.edu'], ('Jonas', 'Ellenberg'): ['Ph.D.', 'Professor', 'jellenbe@mail.med.upenn.edu'], ('Yimei', 'Li'): ['Ph.D.', 'Assistant Professor', 'liy3@email.chop.edu'], ('Mingyao','Li'): ['Ph.D.', 'Associate Professor', 'mingyao@mail.med.upenn.edu'], ('Hongzhe','Li'): ['Ph.D.', 'Professor', 'hongzhe@upenn.edu'] }
+# Create professor_dict
+professor_dict = dict()
+for i in range(len(df)):
+    professor_dict.setdefault((df.loc[i, 'firstname'], df.loc[i, 'lastname']), \
+                            []).extend(df.loc[i, cols].tolist())
+
 print_three(professor_dict)
 print '\n'
 
